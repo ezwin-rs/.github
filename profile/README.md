@@ -1,4 +1,28 @@
-# ezwin: Minimal native Win32 window library
+# `witer`
+
+## An iterator-based Win32 window library built in Rust
+
+[![Crates.io Version](https://img.shields.io/crates/v/witer)](https://crates.io/crates/witer)
+[![Discord](https://img.shields.io/discord/1215348294105169940?logo=discord&label=discord&color=5865F2)](https://discord.gg/KEtfte9xWZ)
+
+```rust
+use witer::prelude::*;
+
+fn main() {
+  // Configure
+  let settings = WindowSettings::default();
+
+  // Build
+  let window = Window::new(settings).unwrap();
+
+  // Run
+  for message in &window {
+    if let Message::Window(..) = message {
+      println!("{message:?}");
+    }
+  }
+}
+```
 
 <!--
 
