@@ -9,15 +9,16 @@
 use witer::prelude::*;
 
 fn main() {
-  // Configure
-  let settings = WindowSettings::default();
-
   // Build
-  let window = Window::new(settings).unwrap();
+  let window = Window::builder()
+    .with_title("My App")
+    .with_size(LogicalSize::new(800.0, 500.0))
+    .build()
+    .unwrap();
 
   // Run
   for message in &window {
-    if let Message::Window(..) = message {
+    if let Message::Key { .. } = message {
       println!("{message:?}");
     }
   }
